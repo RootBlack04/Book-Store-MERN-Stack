@@ -15,6 +15,7 @@ router.post("/", async (req, res) => {
       title: req.body.title,
       author: req.body.author,
       publishYear: req.body.publishYear,
+      summary: req.body.summary,
     };
     const book = await Book.create(newBook);
     return res.status(201).send(book);
@@ -52,9 +53,9 @@ router.get("/:id", async (req, res) => {
 // Route for Update a Book
 router.put("/:id", async (req, res) => {
   try {
-    if (!req.body.title || !req.body.author || !req.body.publishYear) {
+    if (!req.body.title || !req.body.author || !req.body.publishYear || !req.body.summary ) {
       return res.status(400).send({
-        message: "Send All required fields: title, author, publishYear",
+        message: "Send All required fields: title, author, publishYear , Summary",
       });
     }
     const { id } = req.params;

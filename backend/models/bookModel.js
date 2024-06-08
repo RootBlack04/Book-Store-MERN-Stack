@@ -14,6 +14,11 @@ const bookSchema = mongoose.Schema(
       type: Number,
       require: true,
     },
+    summary: {
+      type: String,
+      required: false,
+      default: 'No Data',  // This will be used if no summary is provided
+    },
   },
   {
     timestamps: true,
